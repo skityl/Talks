@@ -1,0 +1,264 @@
+\documentclass[pdf]{beamer}
+
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{animate}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage{color}
+\usetheme{Dresden}
+\usecolortheme{seahorse}
+
+
+\newtheorem{principle}{Principle}
+\newtheorem{proposition}{Proposition}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\newcommand{\laplace}[1]{ \mathcal{L} \left\{ #1 \right\} }
+\newcommand{\fourier}[1]{ \mathcal{F} \left\{ #1 \right\} }
+\newcommand{\mellin}[1]{ \mathcal{M} \left\{ #1 \right\} }
+\newcommand{\rld}[4]{ \left( \prescript{}{#1}{\mathcal{D}_{#2}^{#3}} #4 \right) }
+\newcommand{\rli}[3]{ \left( I_{#1}^{#2} #3 \right) }
+\newcommand{\der}[3]{ \frac{d^{#3}#1}{d#2^{#3}} }
+\newcommand{\capder}[4]{ \left( \prescript{C}{#1}{\mathcal{D}_{#2}^{#3}} #4 \right) }
+\newcommand{\fracdelta}[4]{ \left( \prescript{}{#1}{\Delta^{#2}_{#3} } #4 \right) }
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lla}{\longleftarrow}
+\newcommand{\la}{\leftarrow}
+
+%Analysis
+\newcommand{\Rl}{\mathbb{R}}
+\newcommand{\Cplx}{\mathbb{C}}
+\newcommand{\Itgr}{\mathbb{Z}}
+\newcommand{\Ntrl}{\mathbb{N}}
+\newcommand{\Ind}{\mathbbm{1}}
+\newcommand{\Hlbt}{\mathcal{H}}
+\newcommand{\im}{\operatorname{im}}
+
+\mode<presentation>{}
+\title{Formation of Turing Patterns}
+\subtitle{A Historical Introduction}
+\author[Anna McGann]{Anna McGann\\{\small Supervised by: Dr Chris Angstmann and Prof Bruce Henry}}
+\institute{
+	School of Mathematics and Statistics \\
+	University of New South Wales
+}
+
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame} {Original Motivations}
+
+\begin{figure}
+\includegraphics[scale = 0.3]{zebra3}
+\caption{A Turing pattern wave front generated over a zebra}
+\end{figure}
+\end{frame}
+
+
+%\begin{frame}{Outline}
+%\begin{columns}[T]
+ %   \begin{column}{.5\textwidth}
+  %   \begin{block}{}
+%\begin{itemize}
+%        \item Turing Instability 
+ %       \item Original Motivations
+  %      \item Turing Patterns on Networks and Future Plans
+   % \end{itemize}
+%    \end{block}
+ %   \end{column}
+  %  \begin{column}{.5\textwidth}
+   % \begin{block}{}
+%    \begin{figure}
+ %   \includegraphics[scale=0.35]{Alan}
+  %  \end{figure}
+   % \end{block}
+    %\end{column}
+%  \end{columns}
+%\end{frame}
+
+\begin{frame}{Turing Instability}
+	A Turing Instability is a diffusion driven instability, in which the spatially homogeneous steady state solutions lose their stability in the presence of diffusion.
+	
+	\begin{columns}[T]
+    \begin{column}{.5\textwidth}
+     \begin{block}{General Equations}
+\begin{align*}
+        \frac{\partial u}{\partial t} = f_1(u,v) +  D_1\frac{\partial^2 u}{\partial x^2} \\
+        \frac{\partial v}{\partial t} = f_2(u,v) + D_2\frac{\partial^2 v}{\partial x^2} \\ 
+    \end{align*}
+    \end{block}
+    \end{column}
+    \begin{column}{.5\textwidth}
+    \begin{block}{Concentrations}
+    \begin{figure}[l]
+    \includegraphics[scale=0.3]{concentrations}
+    \caption{Taken from Aubert, 2014}
+    \end{figure}
+    \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Stability Analysis}
+	Now looking at
+\begin{align}	
+	\mathbf{u} =
+\left(		
+	\begin{array}{c}
+	u \\
+	v
+	\end{array}
+	\right)
+	\end{align}
+	Now linearising around the steady states $ u_* $	
+	\begin{equation}
+		\mathbf{u} = \mathbf{u}_*+ \triangle \mathbf{u}	
+	\end{equation}
+	Here the steady state solutions are of the form, with no diffusion:
+	\begin{equation}
+	\triangle \mathbf{u} = \sum_j a_j e^{\lambda_j t}\underline{v}^{(j)}
+	\end{equation}
+	And with diffusion:
+	\begin{equation}
+	\triangle \mathbf{u} = \sum_j\sum_k a_j e^{\lambda_k t}\cos(\frac{k\pi x}{L})
+	\end{equation}
+	%\begin{align*}
+	%	\left(		
+		%\begin{array}{cc}        
+        %\frac{\partial f_1}{\partial n_1} & \frac{\partial f_1}{\partial n_2} \\
+        %\frac{\partial f_2}{\partial n_1} & \frac{\partial f_2}{\partial n_2}
+      %  \end{array} 
+       % \right)
+%		\ \ \ M =
+%		\left(
+%		\begin{array}{cc}        
+ %       (\frac{\partial f_1}{\partial n_1} - D_1\frac{k^2 \pi^2}{L^2}) & \frac{\partial f_1}{\partial n_2} \\
+  %      \frac{\partial f_2}{\partial n_1} & (\frac{\partial f_2}{\partial n_2} - D_2\frac{k^2 \pi^2}{L^2})
+   %     \end{array} 
+    %    \right)
+%    \end{align*}
+ %   \begin{align*}
+  %      \operatorname{tr}\ A< 0 \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \operatorname{tr}\ M > 0 \\
+   % 	\det \ A> 0 \ \ \ \ \ \ \ \ \ \ \ \ \  \ \operatorname{det} \ M < 0
+   % \end{align*}
+\end{frame}
+
+
+
+\begin{frame}{Activator-Inhibitor Systems}
+	Gierer-Meinhardt Equations (1972)
+		\begin{align}
+    		\frac{\partial u}{dt} = \rho \frac{u^2}{v} - \mu_u u + D_u \frac{\partial^2 u}{\partial x^2} + \rho_u \\
+    		\frac{\partial v}{dt} = \rho u^2 - \mu_v v + D_v \frac{\partial^2 v}{\partial x^2} + \rho_v
+    	\end{align}
+    Here $ u $ is an activator, while $ v $ is an inhibitor
+\end{frame}
+
+\begin{frame}{Activator-Inhibitor Systems}
+   \begin{center}
+\animategraphics[scale=0.32]{1}{GM_c}{1}{81}
+   \end{center}
+   Contour plot shows the variation in the concentration of the activator as the Gierer-Meinhardt equations are perturbed. Following the parameters:
+   \begin{align*}
+\rho = 0.1, \mu_u=0.18, \rho_u=0.2, D_u=0.055  \\   
+   \end{align*}
+\end{frame}
+
+\begin{frame}{Activator-Inhibitor Example}
+\begin{columns}[T]
+    \begin{column}{.5\textwidth}
+     \begin{block}{Zebra Fish}
+\begin{itemize}
+\item Zebra fish made up of yellow and black
+\item Black is the activator, yellow inhibitor
+\item Pigment was surgically removed and regrowth documented
+\item Regrowth matched Turing model predictions
+\end{itemize}
+    \end{block}
+    \end{column}
+    \begin{column}{.5\textwidth}
+    \begin{block}{Pigment regrowth}
+    \begin{figure}[l]
+    \includegraphics[scale=0.24]{zebra}
+    \caption{Taken from Kondo, 2010}
+    \end{figure}
+    \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Motivations for Networks}
+\begin{itemize}
+\item Diffusion over the whole space only allows for geographical diffusion
+\item Looking at Turing patterns develop over networks allows us to see impact of topology of the network
+\item This is important in the case of non-local diffusion and other transport networks
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Extension to Networks}
+When we apply these equations to networks, the diffusive term is not well defined and hence is evaluated as a Continuous Time Markov Chain.
+\begin{align}
+        \frac{\partial u}{\partial t} = f_1(u,v) +  D_1\nabla^2\cdot u
+\end{align}
+\begin{align}
+        \frac{\partial u}{\partial t} = f_1(u,v) + \sum_{j=1}^N \lambda_u(i|j,t)\alpha_u(j)u(j,t) -\alpha_u(i)u(i,t)
+\end{align}
+\end{frame}
+
+\begin{frame}{Extension to Networks}
+\begin{figure}
+\includegraphics[scale=0.5]{network}
+\caption{Taken from Angstmann et al., 2013, Concentrations of 2 reactants over a network's nodes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Conclusion}
+	\begin{itemize}
+		\item Reaction-Diffusion Equations
+		\item Seen very often in nature
+		\item Looking at diseases causing these instabilities
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Key References}
+\begin{itemize}
+\item [1]Turing, Alan Mathison. "The chemical basis of morphogenesis." Philosophical Transactions of the Royal Society of London. Series B, Biological Sciences 237.641 (1952): 37-72.
+\item [2]Gierer, Alfred, and Hans Meinhardt. "A theory of biological pattern formation." Kybernetik 12.1 (1972): 30-39.
+\item [3]Nakamasu, Akiko, et al. "Interactions between zebrafish pigment cells responsible for the generation of Turing patterns." Proceedings of the National Academy of Sciences 106.21 (2009): 8429-8434.
+\end{itemize}
+\end{frame}
+\begin{frame}{Key References}
+\begin{itemize}
+\item [4] Angstmann, C. N., et al. "Continuous-time random walks on networks with vertex-and time-dependent forcing." Physical Review E 88.2 (2013): 022811.
+\item [5] Kondo, Shigeru, and Takashi Miura. "Reaction-diffusion model as a framework for understanding biological pattern formation." Science 329.5999 (2010): 1616-1620.
+\item [6] Turk, Greg. Zebra3, 1997, http://www.cc.gatech.edu
+\item [7] Aubert, Nathanaël, et al. "Computer-assisted design for scaling up systems based on DNA reaction networks." Journal of The Royal Society Interface 11.93 (2014): 20131167.
+\end{itemize}
+\end{frame}
+
+
+\end{document}
