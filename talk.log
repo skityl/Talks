@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.8.2)  18 SEP 2014 09:17
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.8.2)  18 SEP 2014 09:25
 entering extended mode
  %&-line parsing enabled.
 **talk.tex
@@ -937,7 +937,7 @@ texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fon
 ts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-texlive/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb>
-Output written on talk.pdf (32 pages, 774746 bytes).
+Output written on talk.pdf (32 pages, 774705 bytes).
 PDF statistics:
  931 PDF objects out of 1000 (max. 8388607)
  65 named destinations out of 1000 (max. 500000)
