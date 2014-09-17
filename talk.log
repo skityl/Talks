@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.8.2)  17 SEP 2014 19:58
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.8.2)  17 SEP 2014 20:15
 entering extended mode
  %&-line parsing enabled.
 **talk.tex
@@ -653,7 +653,12 @@ Package: beamerinnerthemerounded 2010/06/17  (rcs-revision d02a7cf4d8ae)
 (/usr/share/texmf/tex/latex/beamer/base/themes/outer/beamerouterthemeinfolines.
 sty
 Package: beamerouterthemeinfolines 2010/07/10  (rcs-revision 445340293dde)
-)) (./talk.aux)
+))
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 24.
+
+(./talk.aux)
 \openout1 = `talk.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
@@ -813,7 +818,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 <Julia_set_(ice).png, id=14, 1027.84pt x 770.88pt>
 File: Julia_set_(ice).png Graphic file (type png)
  <use Julia_set_(ice).png>
-Overfull \vbox (4.27467pt too high) detected at line 42
+Overfull \vbox (20.00385pt too high) detected at line 42
  []
 
 
@@ -911,10 +916,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 14741 strings out of 494818
- 275857 string characters out of 1178667
- 346741 words of memory out of 3000000
- 17478 multiletter control sequences out of 15000+50000
+ 14742 strings out of 494818
+ 275862 string characters out of 1178667
+ 347835 words of memory out of 3000000
+ 17479 multiletter control sequences out of 15000+50000
  10924 words of font info for 40 fonts, out of 3000000 for 9000
  212 hyphenation exceptions out of 8191
  49i,16n,57p,425b,836s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -930,7 +935,7 @@ texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fon
 ts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-texlive/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb>
-Output written on talk.pdf (31 pages, 768163 bytes).
+Output written on talk.pdf (31 pages, 768327 bytes).
 PDF statistics:
  905 PDF objects out of 1000 (max. 8388607)
  63 named destinations out of 1000 (max. 500000)
